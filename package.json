@@ -1,0 +1,12 @@
+{
+  "name": "gpui-jig",
+  "version": "0.1.0",
+  "description": "Create a native Rust desktop starter with GPUI Jig components.",
+  "license": "MIT",
+  "repository": "github:kahwee/gpui-jig",
+  "homepage": "https://kahwee.github.io/gpui-jig/",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "bin": { "gpui-jig": "bin/gpui-jig.mjs" },
+  "files": ["bin", "starter", "LICENSE", "README.md"]
+}

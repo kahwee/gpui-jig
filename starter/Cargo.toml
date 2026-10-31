@@ -1,0 +1,10 @@
+[package]
+name = "jig-starter"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+gpui-jig = "0.1.0"
+gpui = { package = "gpui-pre", version = "0.3.10" }
+gpui_platform = { package = "gpui-pre-platform", version = "0.3.10", features = ["font-kit", "runtime_shaders"] }

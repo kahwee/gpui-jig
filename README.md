@@ -22,9 +22,11 @@ Run `cargo doc --no-deps --open` or explore the [online API reference](https://k
 
 ## Use it
 
+Generate a Rust project with a compact counter button using `pnpm dlx gpui-jig create my-app` or `npx gpui-jig create my-app`. From the new directory, run `cargo run --release` on macOS with the Rust and GPUI build prerequisites installed. The npm CLI scaffolds the app; Cargo supplies the native library. To add it to an existing project, use the dependencies below.
+
 ```toml
 [dependencies]
-gpui-jig = { git = "https://github.com/kahwee/gpui-jig" }
+gpui-jig = "0.1.0"
 gpui = { package = "gpui-pre", version = "0.3.10" }
 ```
 
