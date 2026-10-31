@@ -26,7 +26,7 @@ Generate a Rust project with a compact counter button using `pnpm dlx gpui-jig c
 
 ```toml
 [dependencies]
-gpui-jig = "0.1.0"
+gpui-jig = "0.1"
 gpui = { package = "gpui-pre", version = "0.3.10" }
 ```
 
