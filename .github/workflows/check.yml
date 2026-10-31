@@ -33,3 +33,20 @@ jobs:
           name: gpui-jig-crate
           path: target/package/*.crate
           if-no-files-found: error
+  starter:
+    name: Install npm tarball and build generated Rust app
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Test clean install
+        run: |
+          npm pack --pack-destination "$RUNNER_TEMP"
+          archive="$RUNNER_TEMP/gpui-jig-$(node -p "require('./package.json').version").tgz"
+          npm install --prefix "$RUNNER_TEMP/consumer" "$archive" --no-audit --no-fund
+          "$RUNNER_TEMP/consumer/node_modules/.bin/gpui-jig" create "$RUNNER_TEMP/example"
+          cargo build --manifest-path "$RUNNER_TEMP/example/Cargo.toml" --release
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: gpui-jig-npm
+          path: ${{ runner.temp }}/gpui-jig-*.tgz
+          if-no-files-found: error
