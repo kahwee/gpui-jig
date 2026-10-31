@@ -16,3 +16,26 @@ pub fn submenu_trigger(
 ) -> Stateful<Div> {
     item(id, label).aria_expanded(expanded)
 }
+
+/// An independently toggleable command. Attach a listener to update the value.
+pub fn checkbox_item(
+    id: impl Into<ElementId>,
+    label: impl Into<SharedString>,
+    checked: bool,
+) -> Stateful<Div> {
+    item(id, label)
+        .role(Role::MenuItemCheckBox)
+        .aria_toggled(checked.into())
+}
+// Group mutually exclusive commands. The caller owns the selected value.
+surface!(radio_group, RadioGroup);
+/// One choice in a menu radio group.
+pub fn radio_item(
+    id: impl Into<ElementId>,
+    label: impl Into<SharedString>,
+    selected: bool,
+) -> Stateful<Div> {
+    item(id, label)
+        .role(Role::MenuItemRadio)
+        .aria_toggled(selected.into())
+}
