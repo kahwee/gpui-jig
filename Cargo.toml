@@ -1,0 +1,11 @@
+[package]
+name = "gpui-jig"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.99.1"
+license = "MIT"
+description = "Unstyled GPUI components with composable parts for Rust applications."
+repository = "https://github.com/kahwee/gpui-jig"
+
+[dependencies]
+gpui = { package = "gpui-pre", version = "0.3.10" }
