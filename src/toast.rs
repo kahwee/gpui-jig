@@ -15,3 +15,12 @@ use gpui::{prelude::*, *};
 surface!(viewport, Region);
 surface!(root, Status);
 pub use crate::button::root as close;
+
+/// Short summary of the notification within its status region.
+pub fn title() -> Div {
+    div()
+}
+/// Supporting detail within the same notification.
+pub fn description() -> Div {
+    div()
+}
