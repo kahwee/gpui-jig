@@ -12,6 +12,14 @@ I started GPUI Jig while building a Rust desktop app in stealth. I meant to ship
 
 While I figure out where to take the app next, I’m rewriting the tools I built for it and releasing them as open source. GPUI Jig is one of those tools. If you’re building a different kind of Rust app, I’d like you to be able to take the parts you need and make them feel at home in yours.
 
+[![Library CI](https://github.com/kahwee/gpui-jig/actions/workflows/check.yml/badge.svg)](https://github.com/kahwee/gpui-jig/actions/workflows/check.yml)
+
+## Explore the API
+
+Each component has its own Rust module. Compose its named parts, then add GPUI styles and listeners. Keep mutable state in your view and call `cx.notify()` after a change. Give repeated controls stable IDs so focus follows the same item across renders.
+
+Run `cargo doc --no-deps --open` or explore the [online API reference](https://kahwee.github.io/gpui-jig/api/gpui_jig/). The Checkbox, Accordion, Progress, Scroll Area, Avatar, Card and Toast modules contain checked Rust recipes. Cratebook’s **Rust source** panel shows complete interactive views.
+
 ## Use it
 
 ```toml
@@ -75,3 +83,7 @@ For compound controls, the application connects the parts. Editors supply their 
 Run `cargo test --locked` for the state tests and `cargo doc --no-deps --open` for the Rust API.
 
 Released under the [MIT license](LICENSE).
+
+## Packaging
+
+Run `cargo publish --locked --dry-run` to verify the distributable Rust crate. CI uploads the verified archive. To release the checked commit, verify the version and run `cargo publish --locked` with a crates.io publisher account. The browser gallery ships separately as the `cratebook` npm CLI.
