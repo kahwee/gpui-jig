@@ -80,15 +80,19 @@ pub fn navigate(key: &str, current: Option<usize>, enabled: &[bool]) -> Option<u
     let start = current
         .filter(|&i| i < n)
         .unwrap_or(if forward { n - 1 } else { 0 });
-    (1..=n)
-        .map(|d| {
-            if forward {
-                (start + d) % n
-            } else {
-                (start + n - d) % n
-            }
-        })
-        .find(|&i| enabled[i])
+    if forward {
+        let split = start + 1;
+        enabled[split..]
+            .iter()
+            .position(|&e| e)
+            .map(|i| split + i)
+            .or_else(|| enabled[..split].iter().position(|&e| e))
+    } else {
+        enabled[..start]
+            .iter()
+            .rposition(|&e| e)
+            .or_else(|| enabled[start..].iter().rposition(|&e| e).map(|i| start + i))
+    }
 }
 
 /// Tracks the opener so a dialog, drawer or popup can restore keyboard focus.
