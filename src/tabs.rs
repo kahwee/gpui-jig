@@ -39,7 +39,7 @@ pub fn tab(
 
 /// Calculate a destination in the current horizontal tab order.
 ///
-/// Left and right wrap; Home and End select the first and last index. Returns
+/// Left and right wrap; Home and End return the first and last index. Returns
 /// `None` for other keys or an invalid `current`, including an empty list.
 /// The caller owns selection, focus, and the mapping from indices to stable IDs.
 pub fn destination(key: &str, current: usize, count: usize) -> Option<usize> {
