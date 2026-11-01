@@ -89,6 +89,10 @@ Try the [unified and split title-bar recipes](https://kahwee.github.io/gpui-jig/
 | Overlays | Dialog, Alert Dialog, Drawer, Popover, Preview Card, Tooltip, Toast |
 | Display | Avatar, Meter, Progress, Scroll Area, Separator |
 
+### Tables
+
+The `table` module adds unstyled table, row, column-header and cell parts for desktop data views. Define a `ColumnDef` for each field and keep `Sorting` in your view to cycle between ascending, descending and input order. Columns sort by their native values even when `format_cell` changes the displayed text. The caller owns the rows, layout, controls and focus behavior. See the [Cratebook table example](https://github.com/kahwee/cratebook/blob/main/src/stories/table.rs) and [table API](https://kahwee.github.io/gpui-jig/api/gpui_jig/table/).
+
 ## Cards and desktop context menus
 
 Use `card::root`, `card::title` and `card::content` for an ordinary content card. Card is a desktop addition. Base UI’s Preview Card is a separate popup component.

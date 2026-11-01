@@ -38,6 +38,7 @@ pub mod separator;
 pub mod slider;
 pub mod state;
 pub mod switch;
+pub mod table;
 pub mod tabs;
 pub mod toast;
 pub mod toggle;
