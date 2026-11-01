@@ -1,6 +1,6 @@
 [package]
 name = "gpui-jig"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2024"
 rust-version = "1.99.1"
 license = "MIT"
@@ -13,5 +13,6 @@ categories = ["gui"]
 include = ["src/**", "README.md", "LICENSE", "Cargo.toml", "Cargo.lock"]
 
 [dependencies]
+chrono = { version = "0.4", default-features = false, features = ["std"] }
 gpui = { package = "gpui-pre", version = "0.3.10" }
 
