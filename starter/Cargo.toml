@@ -5,6 +5,6 @@ edition = "2024"
 publish = false
 
 [dependencies]
-gpui-jig = "0.1.5"
+gpui-jig = "0.1.6"
 gpui = { package = "gpui-pre", version = "0.3.10" }
 gpui_platform = { package = "gpui-pre-platform", version = "0.3.10", features = ["font-kit", "runtime_shaders"] }
