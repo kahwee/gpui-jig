@@ -18,7 +18,7 @@ While I figure out where to take the app next, I’m rewriting the tools I built
 
 Each component has its own Rust module. Compose its named parts, then add GPUI styles and listeners. Keep mutable state in your view and call `cx.notify()` after a change. Give repeated controls stable IDs so focus follows the same item across renders.
 
-Run `cargo doc --no-deps --open` or explore the [online API reference](https://kahwee.github.io/gpui-jig/api/gpui_jig/). The Checkbox, Accordion, Progress, Scroll Area, Avatar, Card and Toast modules contain checked Rust recipes. Cratebook’s **Rust source** panel shows complete interactive views.
+Run `cargo doc --no-deps --open` or explore the [online API reference](https://kahwee.github.io/gpui-jig/api/gpui_jig/). The Switch, Tabs, Checkbox, Accordion, Progress, Scroll Area, Avatar, Card and Toast modules contain Rust recipes checked by the documentation tests. Cratebook’s **Rust source** panel shows complete interactive views.
 
 ## Use it
 
@@ -72,6 +72,8 @@ The root supplies the switch role and checked state; the thumb is an unstyled ch
 4. Check the interaction contracts below and implement any behavior Jig does not yet provide. Verify keyboard, pointer and accessibility behavior in your application.
 
 Jig borrows part names from [Base UI](https://base-ui.com/react/components/switch), but its parts are GPUI elements: use Rust modifiers and application state instead of CSS classes and data attributes. See the [Switch API](https://kahwee.github.io/gpui-jig/api/gpui_jig/switch/) for the Rust contract.
+
+For a compound navigation example, see the [Tabs API](https://kahwee.github.io/gpui-jig/api/gpui_jig/tabs/) and the [interactive Cratebook story](https://github.com/kahwee/cratebook/blob/main/src/stories/tabs.rs). Its view owns selected document IDs, keyboard focus and closing; the Jig parts supply the elements and navigation helper.
 
 ## Desktop layouts
 
