@@ -16,8 +16,11 @@ jobs:
       - uses: actions/checkout@v7.0.1
       - run: cargo fmt --check
   test:
-    name: Native tests and Rust examples
-    runs-on: macos-latest
+    name: Native tests and Rust examples (${{ matrix.os }})
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7.0.1
       - run: cargo test --locked
