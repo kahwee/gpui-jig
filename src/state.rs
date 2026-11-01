@@ -59,7 +59,9 @@ impl Range {
         }
     }
     pub fn step(&mut self, delta: f64) {
-        self.set(self.value + delta);
+        if delta.is_finite() {
+            self.value = (self.value + delta).clamp(self.min, self.max);
+        }
     }
 }
 
@@ -156,5 +158,14 @@ mod tests {
         r.step(20.);
         r.set(f64::NAN);
         assert_eq!(r.value(), 10.);
+    }
+    #[test]
+    fn finite_steps_that_overflow_clamp_to_the_bound() {
+        let mut range = Range::new(-f64::MAX, f64::MAX, f64::MAX / 2.).unwrap();
+        range.step(f64::MAX);
+        assert_eq!(range.value(), f64::MAX);
+        range.set(-f64::MAX / 2.);
+        range.step(-f64::MAX);
+        assert_eq!(range.value(), -f64::MAX);
     }
 }
