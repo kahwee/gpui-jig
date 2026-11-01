@@ -40,11 +40,33 @@ pub fn apply_key(range: &mut crate::state::Range, key: &str, step: f64) -> bool 
     match key {
         "left" | "down" => range.step(-step),
         "right" | "up" => range.step(step),
-        "pagedown" => range.step(-10. * step),
-        "pageup" => range.step(10. * step),
+        "pagedown" => {
+            for _ in 0..10 {
+                range.step(-step);
+            }
+        }
+        "pageup" => {
+            for _ in 0..10 {
+                range.step(step);
+            }
+        }
         "home" => range.set(range.min()),
         "end" => range.set(range.max()),
         _ => return false,
     }
     true
+}
+
+#[cfg(test)]
+mod tests {
+    use super::apply_key;
+
+    #[test]
+    fn page_keys_handle_large_finite_steps() {
+        let mut range = crate::state::Range::new(-f64::MAX, f64::MAX, -f64::MAX).unwrap();
+        assert!(apply_key(&mut range, "pageup", f64::MAX / 2.));
+        assert_eq!(range.value(), f64::MAX);
+        assert!(apply_key(&mut range, "pagedown", f64::MAX / 2.));
+        assert_eq!(range.value(), -f64::MAX);
+    }
 }
