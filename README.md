@@ -109,7 +109,7 @@ For compound controls, the application connects the parts. Editors supply their 
 
 Run `cargo test --locked` for the state tests and `cargo doc --no-deps --open` for the Rust API.
 
-Released under the [MIT license](LICENSE).
+Released under the [MIT license](https://github.com/kahwee/gpui-jig/blob/main/LICENSE).
 
 ## Packaging
 
